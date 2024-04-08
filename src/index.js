@@ -21,7 +21,6 @@ function renderImages(objStoringUrls) {
     })
 }
 
-
 // Challenge 2 
 
 fetch("https://dog.ceo/api/breeds/list/all")
@@ -30,7 +29,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
 
 function renderBreedNames(objStoringBreeds) {
     breedObj = objStoringBreeds.message
-    console.log(Object.keys(breedObj))
+//  console.log(Object.keys(breedObj))
     breedArr = Object.keys(breedObj)
 
     const breedContainer = document.querySelector('#dog-breeds')
@@ -39,27 +38,45 @@ function renderBreedNames(objStoringBreeds) {
         const li = document.createElement('li')
         li.textContent = breed
         breedContainer.appendChild(li)
-        
+
 // Challenge 3
 
         li.addEventListener('click', () => li.style.color = 'salmon')
-
     })
-
-    const dropdown = document.querySelector.apply
-
-    dropdown.addEventListener('change', (e) => console.log('fasdkl'))
-
-    function handleSelectBreed(e) {
-        console.log(e.target.value);
-    }
-
-}
-
 
 
 // Challenge 4
 
+    const dropdown = document.querySelector('#breed-dropdown')
+
+    dropdown.addEventListener('change', (e) => handleSelectBreed(e))
+
+    function handleSelectBreed(e) {
+
+        breedContainer.textContent = ""
+
+//      console.log(e.target.value);
+
+        const filteredBreeds = breedArr.filter((breed) => {
+        
+            if (breed.charAt(0) === e.target.value) {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+
+        filteredBreeds.forEach((breed) => {
+            const li = document.createElement('li')
+            li.textContent = breed
+            breedContainer.appendChild(li)
+
+            li.addEventListener('click', () => li.style.color = 'salmon')
+
+        })
+    }
+}
 
 
 
