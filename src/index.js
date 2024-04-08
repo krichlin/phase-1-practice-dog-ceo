@@ -1,5 +1,7 @@
 console.log('%c HI', 'color: firebrick')
 
+// Challenge 1
+
 fetch("https://dog.ceo/api/breeds/image/random/4")
     .then((resp) => resp.json())
     .then((data) => renderImages(data))
@@ -19,6 +21,9 @@ function renderImages(objStoringUrls) {
     })
 }
 
+
+// Challenge 2 
+
 fetch("https://dog.ceo/api/breeds/list/all")
     .then((resp) => resp.json())
     .then((data) => renderBreedNames(data))
@@ -34,8 +39,28 @@ function renderBreedNames(objStoringBreeds) {
         const li = document.createElement('li')
         li.textContent = breed
         breedContainer.appendChild(li)
+        
+// Challenge 3
+
+        li.addEventListener('click', () => li.style.color = 'salmon')
+
     })
+
+    const dropdown = document.querySelector.apply
+
+    dropdown.addEventListener('change', (e) => console.log('fasdkl'))
+
+    function handleSelectBreed(e) {
+        console.log(e.target.value);
+    }
+
 }
+
+
+
+// Challenge 4
+
+
 
 
 // document.addEventListener('DOMContentLoaded', function () {
